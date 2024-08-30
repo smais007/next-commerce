@@ -1,5 +1,6 @@
 import { client } from "@/app/lib/sanity";
 import AddToBag from "@/components/AddToBag";
+import CheckoutNow from "@/components/CheckoutNow";
 import ImageGallery from "@/components/ImageGallery";
 import { Button } from "@/components/ui/button";
 import { fullProduct } from "@/lib/type";
@@ -71,6 +72,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
             <div className="flex gap-2.5">
               <AddToBag
+                currency="USD"
+                description={data.description}
+                image={data.image[0]}
+                name={data.name}
+                price={data.price}
+                key={data._id}
+                price_id={data.price_id}
+              />
+
+              <CheckoutNow
                 currency="USD"
                 description={data.description}
                 image={data.image[0]}
